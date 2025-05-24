@@ -1,0 +1,30 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript">
+     var error_status = '<%= error_status %>';
+    var errorMsg = '<%= errorMsg %>';
+    var return_url_final = '<%= returnUrl %>';
+    var cancel_url = '<%= cancelUrl %>';
+   
+   
+    if(error_status === '1'){
+        cancel_url = cancel_url+'?errorMsg='+errorMsg+'&error_status'+error_status;
+    
+    setTimeout(function() {
+        window.location.href=cancel_url;
+    }, 1000);
+    } else if(error_status === '0'){
+        var user_id = '<%= user_id %>';
+    var order_id = '<%= order_id %>';
+    var payment_id = '<%= payment_id %>';
+    var amount = '<%= amount %>';
+    var flag = '<%= flag %>';
+    var charge_type = '<%= charge_type %>';
+        return_url_final = return_url_final+'?user_id='+user_id+'&order_id='+order_id+'&payment_id='+payment_id+'&amount='+amount+'&charge_type='+charge_type+'&flag='+flag;
+    
+    setTimeout(function() {
+        window.location.href=return_url_final;
+    }, 1000);
+    }
+    
+
+</script>
